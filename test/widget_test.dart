@@ -1,7 +1,6 @@
+import 'package:flutter_app/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../lib/main.dart';
 
 void main() {
   testWidgets('ホームが表示され、2画面目へ遷移できる', (WidgetTester tester) async {
