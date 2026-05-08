@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_tmp/env/env.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // ============================================================
@@ -73,15 +74,13 @@ extension _DioExceptionMapper on DioException {
 // API クライアント
 // ============================================================
 
-const _baseUrl = 'https://api.example.com';
-
 class ApiClient {
   ApiClient({Dio? dio})
     : _dio =
           dio ??
           Dio(
             BaseOptions(
-              baseUrl: _baseUrl,
+              baseUrl: Env.baseUrl,
               connectTimeout: const Duration(seconds: 10),
               receiveTimeout: const Duration(seconds: 30),
               headers: {
