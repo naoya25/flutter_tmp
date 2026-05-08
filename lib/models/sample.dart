@@ -6,10 +6,8 @@ class Sample {
   final int id;
   final String title;
 
-  factory Sample.fromJson(JsonMap json) => Sample(
-    id: json['id'] as int,
-    title: json['title'] as String,
-  );
+  factory Sample.fromJson(JsonMap json) =>
+      Sample(id: json['id'] as int, title: json['title'] as String);
 
   JsonMap toJson() => {'title': title};
 }
