@@ -4,24 +4,13 @@ import 'package:go_router/go_router.dart';
 import '../pages/home/page.dart';
 import '../pages/second/page.dart';
 
-/// 画面ルート。新規ページはここに列挙子を追加し、[build] にウィジェットを返す。
 enum AppRoute {
   home('/'),
   second('/second');
 
   const AppRoute(this.location);
 
-  /// フルパス。query なしの遷移や [initialLocation] に使う。
   final String location;
-
-  /// query パラメータを付けた URI 文字列を返す。
-  /// [push] / [go] に渡す文字列はここで組み立てる。
-  String uri({Map<String, String>? queryParameters}) {
-    if (queryParameters == null || queryParameters.isEmpty) return location;
-    return Uri.parse(
-      location,
-    ).replace(queryParameters: queryParameters).toString();
-  }
 
   Widget build(BuildContext context, GoRouterState state) {
     switch (this) {
@@ -30,6 +19,13 @@ enum AppRoute {
       case AppRoute.second:
         return SecondPage(queryParams: state.uri.queryParameters);
     }
+  }
+
+  String uri({Map<String, String>? queryParameters}) {
+    if (queryParameters == null || queryParameters.isEmpty) return location;
+    return Uri.parse(
+      location,
+    ).replace(queryParameters: queryParameters).toString();
   }
 }
 
