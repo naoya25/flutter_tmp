@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,7 +9,7 @@ void main() {
 
     expect(find.text('トップ画面'), findsOneWidget);
 
-    await tester.tap(find.text('2画面目へ'));
+    await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle();
 
     expect(find.text('ホームから渡したメッセージ'), findsOneWidget);
