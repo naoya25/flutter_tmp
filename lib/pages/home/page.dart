@@ -1,11 +1,9 @@
-// ignore_for_file: unnecessary_underscores
-
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../widgets/error.dart';
+import '../../widgets/loading.dart';
 import '../../router/app_router.dart';
-import 'components/error_view.dart';
-import 'components/loading_view.dart';
 import 'notifier.dart';
 
 class HomePage extends ConsumerWidget {
@@ -38,9 +36,9 @@ class HomePage extends ConsumerWidget {
   }
 
   Widget _body(HomeState state, WidgetRef ref) {
-    if (state.isLoading) return const LoadingView();
+    if (state.isLoading) return const AppLoadingWidget();
     if (state.isError) {
-      return ErrorView(
+      return AppErrorWidget(
         onRetry: () => ref.read(homeNotifierProvider.notifier).reload(),
       );
     }

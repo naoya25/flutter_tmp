@@ -19,7 +19,7 @@ class SecondPage extends HookWidget {
       appBar: AppBar(title: const Text('2画面目')),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: .center,
           children: [
             Text(label),
             const SizedBox(height: 16),
@@ -29,7 +29,7 @@ class SecondPage extends HookWidget {
             ),
             const SizedBox(height: 24),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: .center,
               children: [
                 IconButton.outlined(
                   onPressed: () => count.value--,

@@ -23,13 +23,12 @@ class HomeState {
     List<Sample>? samples,
     bool? isLoading,
     bool? isError,
-  }) =>
-      HomeState(
-        headline: headline ?? this.headline,
-        samples: samples ?? this.samples,
-        isLoading: isLoading ?? this.isLoading,
-        isError: isError ?? this.isError,
-      );
+  }) => HomeState(
+    headline: headline ?? this.headline,
+    samples: samples ?? this.samples,
+    isLoading: isLoading ?? this.isLoading,
+    isError: isError ?? this.isError,
+  );
 }
 
 class HomeNotifier extends Notifier<HomeState> {
@@ -59,5 +58,6 @@ class HomeNotifier extends Notifier<HomeState> {
   }
 }
 
-final homeNotifierProvider =
-    NotifierProvider<HomeNotifier, HomeState>(HomeNotifier.new);
+final homeNotifierProvider = NotifierProvider<HomeNotifier, HomeState>(
+  HomeNotifier.new,
+);
